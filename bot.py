@@ -1,6 +1,8 @@
 import logging
-import settings
+
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+import settings
 
 FORMAT = '%(asctime)s %(levelname)s %(message)s'
 logging.basicConfig(filename='bot.log', level=logging.INFO, format=FORMAT)
@@ -31,8 +33,6 @@ def main():
     mybot.start_polling()
     # Запускаем бота, он будет работать, пока мы его не остановим принудительно
     mybot.idle()
-
-
 
 
 if __name__ == '__main__':
