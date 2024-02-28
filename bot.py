@@ -1,9 +1,9 @@
 import logging
-from random import randint, choice
 from glob import glob
+from random import randint, choice
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from emoji import emojize
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import settings
 
@@ -17,10 +17,12 @@ def get_smile(user_data):
         return emojize(smile, use_aliases=True)
     return user_data['emoji']
 
+
 def greet_user(update, context):
     print('Вызван /start')
     context.user_data["emoji"] = get_smile(context.user_data)
-    update.message.reply_text(f'Привет, пользователь! Ты вызвал команду /start {context.user_data["emoji"]}')
+    update.message.reply_text(
+        f'Привет, пользователь! Ты вызвал команду /start {context.user_data["emoji"]}')
 
 
 def talk_to_me(update, context):
@@ -59,8 +61,6 @@ def send_mem_image(update, context):
     mem_image_name = choice(mem_image_list)
     chat_id = update.effective_chat.id
     context.bot.send_photo(chat_id=chat_id, photo=open(mem_image_name, 'rb'))
-
-
 
 
 def main():
