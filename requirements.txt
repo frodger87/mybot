@@ -2,6 +2,7 @@ APScheduler==3.6.3
 attrs==23.2.0
 cachetools==4.2.2
 certifi==2024.2.2
+clarifai-grpc==7.11.0
 emoji==1.7.0
 ephem==4.1.5
 iniconfig==2.0.0
@@ -17,3 +18,4 @@ termcolor==2.4.0
 tomli==2.0.1
 tornado==6.1
 tzlocal==5.2
+protobuf==3.20.3

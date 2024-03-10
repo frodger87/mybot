@@ -4,7 +4,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import settings
 from handlers import greet_user, guess_number, send_mem_image, user_coordinates, \
-    talk_to_me
+    talk_to_me, check_user_photo
 
 FORMAT = '%(asctime)s %(levelname)s %(message)s'
 logging.basicConfig(filename='bot.log', level=logging.INFO, format=FORMAT)
@@ -20,6 +20,7 @@ def main():
     dp.add_handler(CommandHandler("mem", send_mem_image))
     dp.add_handler(
         MessageHandler(Filters.regex('^(Хочу мем)$'), send_mem_image))
+    dp.add_handler(MessageHandler(Filters.photo, check_user_photo))
     dp.add_handler(MessageHandler(Filters.location, user_coordinates))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
 
